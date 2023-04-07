@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 export function useCountdown(mins) {
   const [secs, decrement] = useState(mins * 60);
   const [progress, increment] = useState(0);
-  let [gameOver, setGameOver] = useState(false);
+  let [gameOver, setGameOver] = useState<boolean>(false);
   useEffect(() => {
     if (secs > 0) {
       const progressLevel = setInterval(() => {
