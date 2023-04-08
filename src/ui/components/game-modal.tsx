@@ -6,7 +6,6 @@ import {
   ModalBody,
   useDisclosure,
 } from "@chakra-ui/react";
-import { ImShuffle } from "react-icons/Im";
 import { GameContent } from "./game-content";
 
 const randomLetter = () => {

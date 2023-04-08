@@ -1,5 +1,5 @@
 import { Flex, Progress, Text } from "@chakra-ui/react";
-import { GameClock } from "../game-content";
+import { GameClock } from "../../../constants/models";
 
 export const ProgressBar = (clock: GameClock) => {
   return (
