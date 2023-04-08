@@ -1,4 +1,4 @@
-import { Config } from "../../ui/components/game-content";
+import { Config } from "../models";
 
 export const game: Config = {
   topic: "countries",
