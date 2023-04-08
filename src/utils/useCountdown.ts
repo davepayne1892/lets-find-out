@@ -14,9 +14,9 @@ export function useCountdown(mins) {
       setGameOver(true);
     }
   }, [progress, secs, mins, gameOver]);
-  const min = parseInt(secs / 60, 10);
-  const sec = parseInt(secs % 60, 10);
+  const min = secs / 60;
+  const sec = secs % 60;
   const minutes = min < 10 ? "0" + min : min;
   const seconds = sec < 10 ? "0" + sec : sec;
-  return [progress, minutes, seconds, gameOver];
+  return [progress, Math.floor(minutes as number), seconds, gameOver];
 }
