@@ -15,7 +15,6 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import { ImShuffle } from "react-icons/Im";
 
 const randomLetter = () => {
   const alphabet = "abcdefghijklmnoprstuvwy";
@@ -83,9 +82,7 @@ export const ConfigModal = () => {
                     bgGradient="linear(to-r, green.300, blue.400, pink.200)"
                     _hover={{ bg: "blue.400" }}
                     onClick={handleRandomLetter}
-                  >
-                    {<ImShuffle />}
-                  </Button>
+                  ></Button>
                 </InputRightElement>
               </InputGroup>
               <Button
