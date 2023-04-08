@@ -4,11 +4,11 @@ import {
   InputGroup,
   Input,
   InputRightElement,
-  Grid,
-  GridItem,
+  Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { GameState } from "../../../constants/models";
+import { Answer } from "./answers";
 import { GameResult } from "./game-results";
 
 export const InputArea = (gameState: GameState) => {
@@ -65,14 +65,11 @@ export const InputArea = (gameState: GameState) => {
             </InputGroup>
           </Box>
           <Box>
-            <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-              {guesses.map((guess) => (
-                <GridItem w="100%" h="10">
-                  {" "}
-                  {guess}
-                </GridItem>
+            <Stack spacing="4">
+              {guesses.map((answer: string) => (
+                <Answer {...{ string: answer }} />
               ))}
-            </Grid>
+            </Stack>
           </Box>
         </>
       )}

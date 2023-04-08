@@ -10,7 +10,7 @@ const letter = "b";
 export const GameContent = () => {
   const [progress, minutes, seconds, gameOver] = useCountdown(1);
 
-  const guesses: string[] = [];
+  const guesses: string[] = [""];
 
   return (
     <>

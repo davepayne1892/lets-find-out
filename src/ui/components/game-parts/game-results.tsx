@@ -1,6 +1,15 @@
 import { GameState } from "../../../constants/models";
 import Confetti from "react-confetti";
-import { Grid, GridItem, ModalHeader, ModalBody, Text } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  ModalHeader,
+  ModalBody,
+  Text,
+  Box,
+  Stack,
+} from "@chakra-ui/react";
+import { Answer } from "./answers";
 
 export const GameResult = (gameState: GameState) => {
   console.log(gameState);
@@ -29,14 +38,13 @@ export const GameResult = (gameState: GameState) => {
           {" "}
           {`You scored ${correctGuesses.length} / ${validAnswers.length}`}
         </Text>
-        <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-          {correctGuesses.map((guess) => (
-            <GridItem w="100%" h="10">
-              {" "}
-              {guess}
-            </GridItem>
-          ))}
-        </Grid>
+        <Box>
+          <Stack spacing="4">
+            {correctGuesses.map((answer: string) => (
+              <Answer {...{ string: answer }} />
+            ))}
+          </Stack>
+        </Box>
       </ModalBody>
     </>
   );
