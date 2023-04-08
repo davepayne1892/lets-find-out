@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-export function useCountdown(mins) {
+import { Countdown } from "../constants/models";
+
+export function useCountdown(mins): Countdown {
   const [secs, decrement] = useState(mins * 60);
   const [progress, increment] = useState(0);
   let [gameOver, setGameOver] = useState<boolean>(false);
@@ -18,5 +20,10 @@ export function useCountdown(mins) {
   const sec = secs % 60;
   const minutes = min < 10 ? "0" + min : min;
   const seconds = sec < 10 ? "0" + sec : sec;
-  return [progress, Math.floor(minutes as number), seconds, gameOver];
+  return {
+    progress: progress as number,
+    minutes: Math.floor(minutes as number),
+    seconds: seconds as number,
+    gameOver: gameOver as boolean,
+  };
 }

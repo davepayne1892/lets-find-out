@@ -19,3 +19,10 @@ export type GameClock = {
   minutes: number;
   seconds: number;
 };
+
+export type Countdown = {
+  progress: number;
+  minutes: number;
+  seconds: number;
+  gameOver: boolean;
+};

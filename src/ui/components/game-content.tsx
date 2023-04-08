@@ -8,7 +8,12 @@ import { game } from "../../constants/games/countries";
 const letter = "b";
 
 export const GameContent = () => {
-  const [progress, minutes, seconds, gameOver] = useCountdown(1);
+  const {
+    progress: progress,
+    minutes: minutes,
+    seconds: seconds,
+    gameOver: gameOver,
+  } = useCountdown(1);
 
   const guesses: string[] = [""];
 
