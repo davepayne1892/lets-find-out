@@ -1,5 +1,6 @@
 import { GameState } from "../../../constants/models";
 import Confetti from "react-confetti";
+
 import {
   Grid,
   GridItem,
@@ -12,7 +13,6 @@ import {
 import { Answer } from "./answers";
 
 export const GameResult = (gameState: GameState) => {
-  console.log(gameState);
   const validAnswers = gameState.game.config.answers
     .map((str) => str.toLowerCase())
     .filter((answer: string) => answer.startsWith(gameState.game.letter));
@@ -31,7 +31,7 @@ export const GameResult = (gameState: GameState) => {
 
   return (
     <>
-      <Confetti colors={["#68D391", "#4299E1", "#FBB6CE"]} />
+      <Confetti colors={["#68D391", "#4299E1", "#FBB6CE"]} recycle={false} />
       <ModalHeader>Time's up!</ModalHeader>
       <ModalBody>
         <Text>

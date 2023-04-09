@@ -6,7 +6,8 @@ import { InputArea } from "./game-parts/input-area";
 import { game } from "../../constants/games/countries";
 import { VStack } from "@chakra-ui/react";
 
-const letter = "b";
+const alphabet = "abcdefghijklmnoprstuvwy";
+const letter = alphabet[Math.floor(Math.random() * alphabet.length)];
 
 export const GameContent = () => {
   const {

@@ -43,7 +43,7 @@ export const InputArea = (gameState: GameState) => {
       ) : (
         <VStack>
           <Box>
-            <InputGroup size="md" variant="filled">
+            <InputGroup size="lg" variant="filled">
               <Input
                 pr="4.5rem"
                 type={text}
