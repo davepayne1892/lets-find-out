@@ -30,7 +30,7 @@ export const GameModal = () => {
       >
         Play Todays Game!
       </Button>
-      <Modal size="6xl" onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal size="6xl" onClose={onClose} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent>
           <ModalBody>

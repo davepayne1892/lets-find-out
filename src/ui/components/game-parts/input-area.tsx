@@ -5,6 +5,7 @@ import {
   Input,
   InputRightElement,
   Stack,
+  VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { GameState } from "../../../constants/models";
@@ -40,7 +41,7 @@ export const InputArea = (gameState: GameState) => {
           }}
         />
       ) : (
-        <>
+        <VStack>
           <Box>
             <InputGroup size="md" variant="filled">
               <Input
@@ -71,7 +72,7 @@ export const InputArea = (gameState: GameState) => {
               ))}
             </Stack>
           </Box>
-        </>
+        </VStack>
       )}
     </>
   );

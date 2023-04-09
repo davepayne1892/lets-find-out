@@ -7,7 +7,7 @@ export const GameHeading = (config: Game) => {
       <Heading
         lineHeight={1.1}
         fontWeight={600}
-        fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+        fontSize={{ base: "xl", sm: "4xl", lg: "4xl" }}
       >
         <HStack spacing={3}>
           <Text as={"span"} color={"blue.400"}>

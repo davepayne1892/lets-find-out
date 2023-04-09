@@ -4,6 +4,7 @@ import { ProgressBar } from "./game-parts/progress-bar";
 import { useCountdown } from "../../utils/useCountdown";
 import { InputArea } from "./game-parts/input-area";
 import { game } from "../../constants/games/countries";
+import { VStack } from "@chakra-ui/react";
 
 const letter = "b";
 
@@ -18,7 +19,7 @@ export const GameContent = () => {
   const guesses: string[] = [""];
 
   return (
-    <>
+    <VStack spacing="3">
       <GameHeading {...{ letter: letter, config: game }} />
       <ProgressBar {...{ progress, minutes, seconds }} />
       <InputArea
@@ -28,6 +29,6 @@ export const GameContent = () => {
           gameOver: gameOver,
         }}
       />
-    </>
+    </VStack>
   );
 };

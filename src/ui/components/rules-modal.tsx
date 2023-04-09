@@ -28,12 +28,15 @@ export const RulesModal = () => {
       <Modal size="4xl" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Rules</ModalHeader>
+          <ModalHeader>Let's find out the rules!</ModalHeader>
           <ModalBody>
             {" "}
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
+            You have one minute to name as many things which match the provided
+            criteria as you can. type your guesses into the box and either click
+            submit or enter to submit your guess. When the time is up your
+            answers will be checked, and you'll be given a score showing how
+            many correct answers you've provided (and how many you could have
+            gotten.). Good luck!
           </ModalBody>
         </ModalContent>
       </Modal>
