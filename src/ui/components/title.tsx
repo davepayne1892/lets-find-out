@@ -12,7 +12,7 @@ export const Title = () => {
         fontSize="6xl"
         fontWeight="extrabold"
       >
-        Lets find out{" "}
+        Lets find out!{" "}
       </Text>
     </Flex>
   );
