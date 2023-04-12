@@ -8,11 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { GameContent } from "./game-content";
 
-const randomLetter = () => {
-  const alphabet = "abcdefghijklmnoprstuvwy";
-  return alphabet[Math.floor(Math.random() * alphabet.length)];
-};
-
 export const GameModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
