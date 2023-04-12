@@ -6,6 +6,7 @@ import {
   InputRightElement,
   Stack,
   VStack,
+  Grid,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { GameState } from "../../../constants/models";
@@ -41,9 +42,9 @@ export const InputArea = (gameState: GameState) => {
           }}
         />
       ) : (
-        <VStack>
-          <Box>
-            <InputGroup size="lg" variant="filled">
+        <VStack width={"full"}>
+          <Box width={"full"}>
+            <InputGroup size="lg" width="100%" variant="filled">
               <Input
                 pr="4.5rem"
                 type={text}
@@ -66,11 +67,16 @@ export const InputArea = (gameState: GameState) => {
             </InputGroup>
           </Box>
           <Box>
-            <Stack spacing="4">
+            <Grid
+              templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(5, 1fr)" }}
+              gap={6}
+              color="gray.400"
+              width={"100%"}
+            >
               {guesses.map((answer: string) => (
                 <Answer {...{ string: answer }} />
               ))}
-            </Stack>
+            </Grid>
           </Box>
         </VStack>
       )}

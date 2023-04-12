@@ -22,7 +22,7 @@ export const App = () => {
   return (
     <>
       <ChakraProvider>
-        <Container maxW={"7xl"}>
+        <Container maxW={"7xl"} centerContent>
           <Stack
             align={"center"}
             spacing={{ base: 8, md: 10 }}

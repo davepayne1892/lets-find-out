@@ -1,4 +1,4 @@
-import { Stack, Card, CardBody, Heading } from "@chakra-ui/react";
+import { Card, CardBody, Heading } from "@chakra-ui/react";
 
 export const Answer = ({ string: string }) => {
   return (

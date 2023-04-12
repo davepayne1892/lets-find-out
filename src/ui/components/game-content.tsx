@@ -8,7 +8,6 @@ import { VStack } from "@chakra-ui/react";
 
 const alphabet = "abcdefghijklmnoprstuvwy";
 const letter = alphabet[Math.floor(Math.random() * alphabet.length)];
-
 export const GameContent = () => {
   const {
     progress: progress,
