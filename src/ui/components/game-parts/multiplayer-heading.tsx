@@ -10,26 +10,7 @@ export const MultiplayerGameHeading = ({ topic: topic }) => {
       >
         <HStack spacing={3}>
           <Text as={"span"} color={"blue.400"}>
-            How many
-          </Text>
-          <Text
-            as={"span"}
-            position={"relative"}
-            _after={{
-              content: "''",
-              width: "full",
-              height: "30%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bgGradient: "linear(to-r, green.300, blue.400, pink.200)",
-              zIndex: -1,
-            }}
-          >
-            {topic}
-          </Text>
-          <Text as={"span"} color={"blue.400"}>
-            can you name?
+            How many {topic} can you name?
           </Text>
         </HStack>
       </Heading>

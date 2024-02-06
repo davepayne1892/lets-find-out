@@ -3,7 +3,7 @@ import { ProgressBar } from "./game-parts/progress-bar";
 
 import { useCountdown } from "../../utils/useCountdown";
 import { InputArea } from "./game-parts/input-area";
-import { game } from "../../constants/games/countries";
+import { gameOfTheDay as game } from "../../constants/games";
 import { VStack } from "@chakra-ui/react";
 
 const alphabet = "abcdefghijklmnoprstuvwy";

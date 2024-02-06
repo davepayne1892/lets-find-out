@@ -1,4 +1,4 @@
-import { game } from "../../constants/games/countries";
+import { gameOfTheDay as game } from "../../constants/games";
 import {
   Box,
   Button,
@@ -9,8 +9,9 @@ import {
   VStack,
   Text,
   Heading,
+  useToast,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Player } from "./game-parts/players";
 import { MultiplayerGameHeading } from "./game-parts/multiplayer-heading";
 
@@ -20,7 +21,9 @@ export type PlayerType = {
   isOut: boolean;
 };
 
-const normalisedAnswers = game.answers.map((answer) => answer.toLowerCase());
+const normalisedAnswers = game.answers.map((answer) =>
+  answer.toLowerCase().replace(/\s+/g, "")
+);
 export const MultiplayerContent = () => {
   const [text, setText] = useState("");
   const [players, addToPlayers] = useState<PlayerType[]>([]);
@@ -28,6 +31,7 @@ export const MultiplayerContent = () => {
   const [isStarted, setStarted] = useState<boolean>(false);
   const [isGameover, setGameOver] = useState<boolean>(false);
   const [currentlyActiveIndex, setActivePlayer] = useState<number>(0);
+  const toast = useToast();
 
   const startGame = (e) => {
     if (players.length > 1) {
@@ -96,18 +100,32 @@ export const MultiplayerContent = () => {
   };
 
   const guessIsCorrect = (text: string): boolean => {
-    if (normalisedAnswers.includes(text.toLowerCase())) {
+    if (normalisedAnswers.includes(text.toLowerCase().replace(/\s+/g, ""))) {
       console.log("is correct", text);
       return true;
     }
     console.log("is incorrect", text);
+    toast({
+      title: "Incorrect guess",
+      description: `${text} is not correct.`,
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+    });
 
     return false;
   };
 
   const guessIsNew = (text: string): boolean => {
-    if (guesses.includes(text)) {
+    if (guesses.includes(text.toLowerCase().replace(/\s+/g, ""))) {
       console.log("is not new", text);
+      toast({
+        title: "Already guessed",
+        description: `someone has already guessed ${text}.`,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
       return false;
     }
     console.log("is new", text);
@@ -121,7 +139,17 @@ export const MultiplayerContent = () => {
   const handleGuess = (text: string) => {
     if (guessIsNew(text)) {
       if (guessIsCorrect(text)) {
-        addToGuesses((guesses: string[]) => [...guesses, text]);
+        addToGuesses((guesses: string[]) => [
+          ...guesses,
+          text.toLowerCase().replace(/\s+/g, ""),
+        ]);
+        toast({
+          title: "Correct",
+          description: `Added ${text} to the list of guessed answers.`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
       } else {
         setPlayerAsOut();
       }
@@ -145,11 +173,15 @@ export const MultiplayerContent = () => {
               onChange={(e) => setText(e.target.value)}
               onKeyPress={submitOnEnter}
             />
-            <InputRightElement width="4.5rem">
+            <InputRightElement width="6rem">
               {isStarted ? (
-                <Button onClick={endGame}>Give up</Button>
+                <Button variant={"ghost"} onClick={endGame}>
+                  Give up
+                </Button>
               ) : (
-                <Button onClick={startGame}>Lets go</Button>
+                <Button variant={"ghost"} onClick={startGame}>
+                  Lets go
+                </Button>
               )}
             </InputRightElement>
           </InputGroup>
