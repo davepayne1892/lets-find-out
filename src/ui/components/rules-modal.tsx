@@ -31,12 +31,15 @@ export const RulesModal = () => {
           <ModalHeader>Let's find out the rules!</ModalHeader>
           <ModalBody>
             {" "}
-            You have one minute to name as many things which match the provided
-            criteria as you can. type your guesses into the box and either click
-            submit or enter to submit your guess. When the time is up your
-            answers will be checked, and you'll be given a score showing how
-            many correct answers you've provided (and how many you could have
-            gotten.). Good luck!
+            In the single player version, you have one minute to guess as many
+            items in a topic that start with a specific letter. In this mode
+            there is no penalty for wrong guesses, so keep trying!
+            <br />
+            <br />
+            In the multiplayer variant the timer is gone, but you're playing
+            against your friends. Enter the players, and then take it in turns
+            to guess where a wrong guess knocks you out of the game. Last player
+            standing wins.
           </ModalBody>
         </ModalContent>
       </Modal>

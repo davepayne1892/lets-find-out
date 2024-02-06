@@ -7,8 +7,6 @@ import {
   Heading,
   Text,
   Image,
-  Icon,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { GameModal } from "./ui/components/game-modal";
 import { MultiplayerGameModal } from "./ui/components/multiplayer-game-modal";
@@ -58,9 +56,9 @@ export const App = () => {
                 </Text>
               </Heading>
               <Text color={"gray.500"}>
-                Test your ability to remember how many countries begin with an
-                O, or how many animals begin with an M, or how many movies begin
-                with a G. The possibilities are... 26.
+                Test your ability to remember how many countries begin with a
+                specific letter, or compete against friends to see who can name
+                the most ways to say hello in different languages.
               </Text>
               <Stack
                 spacing={{ base: 4, sm: 6 }}
@@ -92,7 +90,9 @@ export const App = () => {
                   align={"center"}
                   w={"100%"}
                   h={"100%"}
-                  src={"/hero-image.png"}
+                  src={
+                    "https://nestflix.fun/img/jd-salinger-presents-hollywoo-stars-and-celebrities-1280w.jpg"
+                  }
                 />
               </Box>
             </Flex>

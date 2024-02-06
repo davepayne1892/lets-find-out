@@ -6,13 +6,7 @@ import {
   ModalBody,
   useDisclosure,
 } from "@chakra-ui/react";
-import { GameContent } from "./game-content";
 import { MultiplayerContent } from "./multiplayer";
-
-const randomLetter = () => {
-  const alphabet = "abcdefghijklmnoprstuvwy";
-  return alphabet[Math.floor(Math.random() * alphabet.length)];
-};
 
 export const MultiplayerGameModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
