@@ -8,11 +8,16 @@ export type Game = {
   config: Config;
 };
 
-export type GameState = {
+export interface GameState {
   game: Game;
   gameOver: boolean;
   guesses: string[];
-};
+}
+
+export interface MultiplayerState extends GameState {
+  playersCollected: boolean;
+  players: string[];
+}
 
 export type GameClock = {
   progress: number;

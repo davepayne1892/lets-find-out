@@ -11,6 +11,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { GameModal } from "./ui/components/game-modal";
+import { MultiplayerGameModal } from "./ui/components/multiplayer-game-modal";
 import { RulesModal } from "./ui/components/rules-modal";
 
 export type GameInfo = {
@@ -67,6 +68,7 @@ export const App = () => {
               >
                 <GameModal />
                 <RulesModal />
+                <MultiplayerGameModal />
               </Stack>
             </Stack>
             <Flex
@@ -90,9 +92,7 @@ export const App = () => {
                   align={"center"}
                   w={"100%"}
                   h={"100%"}
-                  src={
-                    "https://nestflix.fun/img/jd-salinger-presents-hollywoo-stars-and-celebrities-1280w.jpg"
-                  }
+                  src={"/hero-image.png"}
                 />
               </Box>
             </Flex>
