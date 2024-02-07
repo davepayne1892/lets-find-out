@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Player } from "./game-parts/players";
-import { MultiplayerGameHeading } from "./game-parts/multiplayer-heading";
 
 export type PlayerType = {
   name: string;
@@ -21,9 +20,16 @@ export type PlayerType = {
   isOut: boolean;
 };
 
-const normalisedAnswers = game.answers.map((answer) =>
-  answer.toLowerCase().replace(/\s+/g, "")
-);
+const normaliseString = (text: string): string => {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+};
+
+const normalisedAnswers = game.answers.map((answer) => normaliseString(answer));
+
 export const MultiplayerContent = () => {
   const [text, setText] = useState("");
   const [players, addToPlayers] = useState<PlayerType[]>([]);
@@ -100,7 +106,7 @@ export const MultiplayerContent = () => {
   };
 
   const guessIsCorrect = (text: string): boolean => {
-    if (normalisedAnswers.includes(text.toLowerCase().replace(/\s+/g, ""))) {
+    if (normalisedAnswers.includes(normaliseString(text))) {
       console.log("is correct", text);
       return true;
     }
@@ -117,7 +123,7 @@ export const MultiplayerContent = () => {
   };
 
   const guessIsNew = (text: string): boolean => {
-    if (guesses.includes(text.toLowerCase().replace(/\s+/g, ""))) {
+    if (guesses.includes(normaliseString(text))) {
       console.log("is not new", text);
       toast({
         title: "Already guessed",
@@ -141,7 +147,7 @@ export const MultiplayerContent = () => {
       if (guessIsCorrect(text)) {
         addToGuesses((guesses: string[]) => [
           ...guesses,
-          text.toLowerCase().replace(/\s+/g, ""),
+          normaliseString(text),
         ]);
         toast({
           title: "Correct",
@@ -161,7 +167,17 @@ export const MultiplayerContent = () => {
 
   return (
     <VStack spacing="3">
-      <MultiplayerGameHeading {...{ topic: game.topic }} />
+      <Heading
+        lineHeight={1.1}
+        fontWeight={600}
+        fontSize={{ base: "xl", sm: "2xl", lg: "4xl" }}
+      >
+        <Text as={"span"} color={"blue.400"}>
+          {isStarted
+            ? `How many ${game.topic} can you name`
+            : "Who is playing?"}
+        </Text>
+      </Heading>{" "}
       {!isGameover === true ? (
         <Box width={"full"}>
           <InputGroup size="lg" width="100%" variant="filled">
@@ -169,7 +185,11 @@ export const MultiplayerContent = () => {
               pr="4.5rem"
               type={text}
               value={text && text}
-              placeholder={isStarted ? "Make a guess..." : "Who is playing?"}
+              placeholder={
+                isStarted
+                  ? "Make a guess..."
+                  : "Enter a name and press lets go when ready..."
+              }
               onChange={(e) => setText(e.target.value)}
               onKeyPress={submitOnEnter}
             />

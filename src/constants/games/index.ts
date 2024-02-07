@@ -8,9 +8,9 @@ const games = [
   countries,
   countries,
   originalPokemon,
+  elements,
   waysToSayHello,
   paris2024,
-  elements,
   countries,
 ];
 
