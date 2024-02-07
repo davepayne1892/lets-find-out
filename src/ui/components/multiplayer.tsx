@@ -29,6 +29,7 @@ const normaliseString = (text: string): string => {
 };
 
 const normalisedAnswers = game.answers.map((answer) => normaliseString(answer));
+
 export const MultiplayerContent = () => {
   const [text, setText] = useState("");
   const [players, addToPlayers] = useState<PlayerType[]>([]);
