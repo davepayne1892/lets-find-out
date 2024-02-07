@@ -1,7 +1,7 @@
 import { Config } from "../models";
 
 export const game: Config = {
-  topic: "countries",
+  topic: "multilingual hellos",
   answers: [
     "Bonjour",
     "Hola",
